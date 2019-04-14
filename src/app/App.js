@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>{this.state.products.map(product => 
-          <div>
+          <div key = {product.id}>
             <div>{product.name}</div>
             <div>{product.price}</div>
             <div>{product.description}</div>
