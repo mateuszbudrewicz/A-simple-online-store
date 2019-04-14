@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    products: [
+      {
+        id: 1,
+        name: "Product #1",
+        price: 100,
+        description: "Description #1"
+      },
+      {
+        id: 2,
+        name: "Product #2",
+        price: 200,
+        description: "Description #2"
+      },
+      {
+        id: 3,
+        name: "Product #3",
+        price: 300,
+        description: "Description #3"
+      },
+    ]
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div>{this.state.products.map(product => 
+          <div>
+            <div>{product.name}</div>
+            <div>{product.price}</div>
+            <div>{product.description}</div>
+            <div>---------------------</div>
+          </div>)}
+          </div>
       </div>
     );
   }
