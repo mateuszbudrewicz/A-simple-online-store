@@ -1,0 +1,13 @@
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 220px;
+    border: 1px solid #AAA;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+}

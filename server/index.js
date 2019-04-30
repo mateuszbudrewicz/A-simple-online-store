@@ -6,6 +6,7 @@ module.exports = () => ({
         name: faker.commerce.product(),
         description: faker.lorem.paragraph(),
         price: faker.commerce.price(),
+        image: "https://via.placeholder.com/200x250"
     }))
 })
 
