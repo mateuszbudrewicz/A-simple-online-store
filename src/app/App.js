@@ -14,11 +14,17 @@ class App extends Component {
         this.setState({ products })
       })
   }
+  addToCart = (e) => {
+    console.log(e.target.elements.amount.value)
+    e.preventDefault()
+  }
   render() {
+    const { addToCart } = this
+    const { products } = this.state
     return (
       <div className="App">
         <div className="container">
-        <ProductList products={this.state.products}/>
+        <ProductList {...{addToCart, products }}/>
           </div>
       </div>
     );

@@ -11,3 +11,13 @@
     padding: 20px;
     margin: 20px;
 }
+
+.add-form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+input[name="amount"] {
+    width: 60px;
+}
