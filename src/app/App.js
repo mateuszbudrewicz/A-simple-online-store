@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { ProductList } from "./Product/ProductList"
 import { getProducts } from "./Product/service"
+import { compose, partial } from 'ramda'
 
 const getProduct = (id, products) => products.find(product => product.id === id)
 const createItem = (amount, product) => ({ amount, ...product })
@@ -22,11 +23,11 @@ class App extends Component {
   addToCart = id => e => {
     console.log(e.target.elements.amount.value, id)
     e.preventDefault()
-    const updatedCart = getUpdatedCart(this.state.cartItems, createItem(
-      e.target.elements.amount.value, 
-      getProduct(id, this.state.products)
-      )
-    )
+    const updatedCart = compose(
+      partial(getUpdatedCart, [this.state.cartItems]),
+      partial(createItem, e.target.elements.amount.value),
+      partial(getProduct, [id])
+      )(this.state.products)
     this.setState({ cartItems: updatedCart })
   }
   render() {
