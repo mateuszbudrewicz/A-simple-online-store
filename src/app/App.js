@@ -13,7 +13,9 @@ const getUpdatedCart = (cartItems, item) => cartItems.concat(item)
 class App extends Component {
   state = {
     products: [], 
-    cartItems: []
+    cartItems: [],
+    menu: ["productList", "cart"],
+    currentView: "productList"
   }
   componentDidMount() {
     getProducts()
@@ -34,13 +36,19 @@ class App extends Component {
   render() {
     console.log(this.state.cartItems)
     const { addToCart } = this
-    const { products, cartItems } = this.state
+    const { products, cartItems, currentView, menu } = this.state
     return (
       <div className="App">
+      <header>
+        { menu.map(el => 
+          <div key={el} onClick={() => this.setState({ currentView: el})}>
+            {el}
+          </div>)}
+      </header>
         <div className="container">
-        <ProductList {...{addToCart, products }}/>
-        <Cart {...{ cartItems }}/>
-          </div>
+          { currentView === "productList" ?  <ProductList {...{addToCart, products }}/> 
+          : <Cart {...{ cartItems }}/> }
+        </div>
       </div>
     );
   }
