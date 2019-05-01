@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { ProductList } from "./Product/ProductList"
+import { Cart } from "./Cart/"
 import { getProducts } from "./Product/service"
 import { compose, partial } from 'ramda'
 
@@ -33,11 +34,12 @@ class App extends Component {
   render() {
     console.log(this.state.cartItems)
     const { addToCart } = this
-    const { products } = this.state
+    const { products, cartItems } = this.state
     return (
       <div className="App">
         <div className="container">
         <ProductList {...{addToCart, products }}/>
+        <Cart {...{ cartItems }}/>
           </div>
       </div>
     );
