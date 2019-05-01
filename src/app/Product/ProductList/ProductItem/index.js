@@ -9,7 +9,7 @@ export const ProductItem = ({ product: {id, name, price, description, image},
           <div>{price}</div>
           <div>{`${description.substring(0,60)}...`}</div>
           <div className="add-form">
-            <form onSubmit={ addToCart }>
+            <form onSubmit={ addToCart(id) }>
                 Amount: <input type="number" name="amount" />
                 <button>Add to cart</button>
             </form>
